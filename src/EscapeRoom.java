@@ -2,40 +2,44 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
 public class EscapeRoom  {
     static JPanel panel;
-    JRadioButton door1, door2, door3, door4;
-    static ButtonGroup radios = new ButtonGroup;
+    static JFrame frame;
+    JRadioButton drawer, cabinet, door, clock,bed ;
+    static ButtonGroup radios = new ButtonGroup();
+
     public static void main(String[] args) {
-
+        new EscapeRoom();
     }
+
     public EscapeRoom(){
-        JFrame window = new JFrame("Escape room");
-        JPanel panel = new JPanel();
+        frame  = new JFrame("Escape room");
+        frame.setSize(600,500);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
+        panel = new JPanel();
 
-        window.setSize(600,500);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setLocationRelativeTo(null);
-        window.add(panel);
+        bed = new JRadioButton("look under bed");
+        drawer = new JRadioButton("open drawer");
+        cabinet = new JRadioButton("open cabinet");
+        door = new JRadioButton("open door ");
+        clock = new JRadioButton("touch clock");
 
-        window.setVisible(true);
+        radios.add(bed);
+        radios.add(drawer);
+        radios.add(cabinet);
+        radios.add(door);
+        radios.add(clock);
 
-        door1 = new JRadioButton("open door 1");
-        door2 = new JRadioButton("open door 2");
-        door3 = new JRadioButton("open door 3");
-        door4 = new JRadioButton("open door 4");
+        panel.add(drawer);
+        panel.add(cabinet);
+        panel.add(door);
+        panel.add(clock);
+        panel.add(bed);
 
-        radios.add(door1);
-        radios.add(door2);
-        radios.add(door3);
-        radios.add(door4);
+        frame.add(panel);
+        frame.setVisible(true);
 
-        panel.setLayout(null);
-        panel.add(door1);
-        panel.add(door2);
-        panel.add(door3);
-        panel.add(door4);
     }
 
 }
